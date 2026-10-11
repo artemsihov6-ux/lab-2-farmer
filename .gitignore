@@ -1,0 +1,9 @@
+*.exe
+*.o
+*.out
+.vs/
+.vscode/
+.idea/
+Debug/
+Release/
+x64/
