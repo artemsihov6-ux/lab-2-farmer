@@ -57,6 +57,7 @@ int main(void)
     int hours;
     int slot;
     int item;
+    int temp;
     int i;
 
     while (1) {
@@ -151,6 +152,26 @@ int main(void)
                 break;
             }
             inventory[slot] = ITEM_EMPTY;
+            break;
+        case MENU_VARIANT:
+            printf("Инвентарь до: ");
+            for (i = 0; i < INVENTORY_SIZE; i++) {
+                printf("%d ", inventory[i]);
+            }
+            printf("\n");
+
+            /* меняем местами элементы 0 и 9, 1 и 8 и т.д. */
+            for (i = 0; i < INVENTORY_SIZE / 2; i++) {
+                temp = inventory[i];
+                inventory[i] = inventory[INVENTORY_SIZE - 1 - i];
+                inventory[INVENTORY_SIZE - 1 - i] = temp;
+            }
+
+            printf("Инвентарь после: ");
+            for (i = 0; i < INVENTORY_SIZE; i++) {
+                printf("%d ", inventory[i]);
+            }
+            printf("\n");
             break;
         default:
             printf("Такого пункта меню нет.\n");
